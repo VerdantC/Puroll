@@ -4,7 +4,7 @@
 
 ## 📑Introduction
 
-Puroll Achieving smoother and more efficient operations on the Windows platform.
+Puroll  enables smoother and more efficient operations on Windows.
 
 
 
