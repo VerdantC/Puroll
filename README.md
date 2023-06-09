@@ -32,7 +32,7 @@ Puroll  enables smoother and more efficient operations on Windows.
 
 
 
-## 📖Download
+## ✨Download
 
 - You can download the installer `Puroll-0.60inst.exe`  [here](https://github.com/caijinpao/Puroll/releases/latest)  or  [123云盘](https://www.123pan.com/s/oa4iVv-8O6Vv.html)
 
