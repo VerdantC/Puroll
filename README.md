@@ -40,11 +40,21 @@ Puroll  enables smoother and more efficient operations on Windows.
 
 
 
-- 📚**Attention:** 
+- 📚**VirusTotal false positive:** 
 
 There may be false positives in virus detection. 
 
 If this happens, please add Puroll.exe to the whitelist. 
+
+
+
+
+
+## 📖Build
+
+
+
+- Please refer to the AltSnap and AutoHotkey manuals for compilation.
 
 
 
