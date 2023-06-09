@@ -4,13 +4,7 @@
 
 
 
-Puroll focuses on enhancing three key functions: Alt, mouse scroll, and Esc. 
-
-
-
-
-
-By combining these functions , Puroll streamlines your interactions with the Windows platform, making them smoother and more efficient.
+Puroll Achieving smoother and more efficient operations on the Windows platform.
 
 
 
@@ -40,13 +34,7 @@ By combining these functions , Puroll streamlines your interactions with the Win
 
 ## Download
 
-- You can download the installer `Puroll-0.60inst.exe`
-
- [here](https://github.com/caijinpao/Puroll/releases/latest)
-
-or 
-
-[123云盘](https://www.123pan.com/s/oa4iVv-8O6Vv.html)
+- You can download the installer `Puroll-0.60inst.exe`  [here](https://github.com/caijinpao/Puroll/releases/latest)  or  [123云盘](https://www.123pan.com/s/oa4iVv-8O6Vv.html)
 
 
 
