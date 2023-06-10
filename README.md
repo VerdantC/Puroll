@@ -9,7 +9,11 @@ Puroll  enables smoother and more efficient operations on Windows.
 
 
 
-Uploading 60d6d920e589e5689b96d0654f36ac34.mp4…
+
+https://github.com/VerdantC/Puroll/assets/134343920/dfaf4899-1198-4ec7-a344-6ee236b634e4
+
+
+
 
 
 
