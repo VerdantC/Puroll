@@ -42,7 +42,7 @@ https://github.com/VerdantC/Puroll/assets/134343920/dfaf4899-1198-4ec7-a344-6ee2
 
 ## ✨Download
 
-- You can download the installer `Puroll-0.60inst.exe`  [here](https://github.com/caijinpao/Puroll/releases/latest)  or  [123云盘](https://www.123pan.com/s/oa4iVv-8O6Vv.html)
+- You can download the installer `Puroll-0.60bin.rar`  [here](https://github.com/caijinpao/Puroll/releases/latest)  or  [123云盘](https://www.123pan.com/s/oa4iVv-386Vv.html)
 
 
 
