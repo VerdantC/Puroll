@@ -18,7 +18,7 @@ https://github.com/VerdantC/Puroll/assets/134343920/dfaf4899-1198-4ec7-a344-6ee2
 
 
 
-- Fork from Ramon Unch's AltSnap and Chaohe Shi's CClose.
+- Inspired by [AltSnap](https://github.com/RamonUnch/AltSnap),[CClose](https://github.com/chaohershi/cclose),and [MouseWheelTabScroll](https://gist.github.com/ansidev/f8060bc1061019bf19a73d90fa78d8d3).
 
 
 
