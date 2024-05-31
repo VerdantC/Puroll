@@ -1,0 +1,5 @@
+hooks.h
+hooks.c
+
+cclose.ahk
+	A_WorkingDir
