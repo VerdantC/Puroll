@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="{{page.lang}}">
+
+<head>
+	<title>{{page.title}}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Hao Li, Chaohe Shi">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<!-- Font Awesome CSS-->
+	<link rel="stylesheet" href="assets/css/all.css">
+	<!-- Aminate CSS -->
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+	<!-- Customized CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!-- JQuery JS -->
+	<script src="assets/js/jquery-3.5.1.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- Customized JS -->
+	<script async src="assets/js/script.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105337133-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'UA-105337133-2');
+	</script>
+</head>
+
+<body data-spy="scroll" data-target=".navbar">
+	<!-- Navbar Section -->
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#{{page.home.section}}">{{page.navbar.navbrand}}</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav">
+					{%-for nav in page.navbar.navs%}
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="#{{nav.section}}">{{nav.title}}</a>
+					</li>
+					{%-endfor%}
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link js-scroll-trigger" href="{{page.links.lang}}">{{page.navbar.langInd}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Home Section -->
+	<header id="{{page.home.section}}">
+		<div class="dark-overlay">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 text-center">
+						<h1 class="animated-text">{{page.home.sloganH1}}</h1>
+						{%-for slogan in page.home.sloganH2%}
+						<h2 class="animated-text">{{slogan.text}}</h2>
+						{%-endfor%}
+						<a href="#feature" id="learnMore">{{page.home.more}}</a>
+						<br>
+						<div class="btn-group flex-wrap">
+							<a class="btn btn-lg" href="{{page.links.download}}">{{page.home.download}}</a>
+							<a class="btn btn-lg" href="{{page.links.buy}}">{{page.home.buy}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Feature Section -->
+	<section id="{{page.navbar.navs[0].section}}" class="bg-light text-muted">
+		<div class="container">
+			<h1>{{page.navbar.navs[0].title}}</h1>
+			{%-for feature in page.features%}
+			{%-unless feature.nohr%}
+			<hr>
+			{%-endunless%}
+			{%-if feature.RTL%}
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center">
+					<img src="{{feature.img}}" alt="{{feature.alt}}" class="img-fluid">
+				</div>
+				<div class="col-md-6 feature-text">
+					<h4><b>{{feature.title}}</b><br>{{feature.subtitle}}</h4>
+					<p>{{feature.text}}</p>
+				</div>
+			</div>
+			{%-else%}
+			<div class="row justify-content-center">
+				<div class="col-md-6 feature-text">
+					<h4><b>{{feature.title}}</b><br>{{feature.subtitle}}</h4>
+					<p>{{feature.text}}</p>
+				</div>
+				<div class="col-md-6 text-center">
+					<img src="{{feature.img}}" alt="{{feature.alt}}" class="img-fluid">
+				</div>
+			</div>
+			{%-endif%}
+			{%-endfor%}
+		</div>
+	</section>
+
+	<!-- Download Section -->
+	<section id="{{page.navbar.navs[1].section}}">
+		<div class="container">
+			<h1>{{page.navbar.navs[1].title}}</h1>
+			<div class="row justify-content-center">
+				<div class="col-md-12 text-center">
+					<h4>{{page.download.info}}</h4>
+					<a href="{{page.links.download}}" class="btn btn-lg downloadButton">{{page.download.button}}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonial Section -->
+	<section id="{{page.navbar.navs[2].section}}" class="bg-light text-muted">
+		<div class="container">
+			<h1>{{page.navbar.navs[2].title}}</h1>
+			<div class="row justify-content-center">
+				<div class="col-md-12">
+					<div class="carousel slide" data-ride="carousel" id="quote-carousel">
+
+						<!-- Bottom Carousel Indicators -->
+						<ol class="carousel-indicators">
+							{%-for testimonial in page.testimonials%}
+							<li data-target="#quote-carousel" data-slide-to="{{testimonial.slide}}"{%-if testimonial.slide == 0%} class="active"{%-endif%}></li>
+							{%-endfor%}
+						</ol>
+
+						<!-- Carousel Slides / Quotes -->
+						<div class="carousel-inner">
+							{%-for testimonial in page.testimonials%}
+							<div class="carousel-item{%-if testimonial.slide == 0%} active{%-endif%}">
+								<div class="row justify-content-center">
+									<div class="col-md-3 text-center">
+										<img src="{{testimonial.img}}" alt="{{testimonial.alt}}" class="rounded-circle">
+									</div>
+									<div class="col-md-6">
+										<p><i class="fas fa-quote-left" aria-hidden="true"></i>{{testimonial.quote}}</p>
+										<small>{{testimonial.author}}</small>
+									</div>
+								</div>
+							</div>
+							{%-endfor%}
+						</div>
+
+						<!-- Carousel Buttons Next/Prev -->
+						<a class="carousel-control carousel-control-prev" href="#quote-carousel" data-slide="prev">
+							<i class="fas fa-chevron-left"></i>
+						</a>
+						<a class="carousel-control carousel-control-next" href="#quote-carousel" data-slide="next">
+							<i class="fas fa-chevron-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Purchase Section -->
+	<section id="{{page.navbar.navs[3].section}}">
+		<div class="container">
+			<h1>{{page.navbar.navs[3].title}}</h1>
+			<!--Comparison table-->
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<table class="table table-bordered table-dark table-hover">
+						<thead>
+							<tr>
+								{%-for th in page.purchase.thead%}
+								<th scope="col">{{th.text}}</th>
+								{%-endfor%}
+							</tr>
+						</thead>
+						<tbody>
+							{%-for tb in page.purchase.tbody%}
+							<tr>
+								<th scope="row">{{tb.feature}}</th>
+								<td>{%-if tb.forFree%}<i class="fas fa-check"></i>{%-endif%}</td>
+								<td><i class="fas fa-check"></i>{%-if tb.addHeart%}&nbsp;<i class="fas fa-heart"></i>{%-endif%}</td>
+							</tr>
+							{%-endfor%}
+							<tr>
+								<th scope="row">{{page.purchase.price.text}}</th>
+								<td>{{page.purchase.price.free}}</td>
+								<td>{{page.purchase.price.pro}}</td>
+							</tr>
+						</tbody>
+					</table>
+					{%-for notice in page.purchase.notices%}
+					<p>{{notice.text | replace: "mailto", page.links.mailto}}</p>
+					{%-endfor%}
+					<div class="row justify-content-center">
+						<div class="col-md-12 text-center">
+							<h4>{{page.purchase.info}}</h4>
+							<a href="{{page.links.buy}}"><img src="{{page.purchase.img}}" alt="{{page.purchase.alt}}"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Support Section -->
+	<section id="{{page.navbar.navs[4].section}}" class="bg-light text-muted">
+		<div class="container">
+			<h1>{{page.navbar.navs[4].title}}</h1>
+			<div class="row justify-content-center">
+				<div class="col-md-12">
+					{%-for support in page.support%}
+					<p>{{support.text | replace: "msStore", page.links.msStore | replace: "ghIssue", page.links.ghIssue | replace: "zhihu", page.links.zhihu | replace: "tgGroupChat", page.links.tgGroupChat | replace: "mailto", page.links.mailto}}</p>
+					{%-endfor%}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-4 footer-left">
+					{{page.footer.copyright}}
+				</div>
+				<div class="col-md-4 footer-center">
+					<a href="{{page.links.github}}"><span class="fab fa-github" style="font-size:22px"></span></a>
+				</div>
+				<div class="col-md-4 footer-right">
+					<a href="{{page.links.license}}">{{page.footer.license}}</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

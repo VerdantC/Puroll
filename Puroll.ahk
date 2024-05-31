@@ -1,4 +1,5 @@
-; alter
+ScriptVersion := "0.7.0"
+
 #SingleInstance force
 #Persistent
 
@@ -7,31 +8,13 @@ SetWorkingDir %A_ScriptDir% ; ensure a consistent starting directory
 
 Menu, Tray, Tip, Puroll
 
-; ScriptName := "CClose"
 ScriptName := "Puroll"
 
 
-
+global ConfigDir
 ConfigDir := A_WorkingDir . "\" . "config"
 ConfigFile := ConfigDir . "\" . ScriptName . ".ini"
 
-; LangFile := "lang.ini"
-
-; ; set the script language
-; if (A_Language == "0804") ; https://autohotkey.com/docs/misc/Languages.htm
-;     {
-;         Language := "Chinese"
-;     }
-;     else ; use English by default
-;     {
-;         Language := "English"
-;     }
-
- 
-
-; IniRead, TEXT_MenuAutostart, %LangFile%, %Language%, TEXT_MenuAutostart, Run %ScriptName% on system startup
-
-TEXT_MenuAutostart = Start with Windows
 
 
 
@@ -41,30 +24,67 @@ TEXT_MenuAutostart = Start with Windows
 
 
 
-; Menu, Tray, NoStandard ; remove the standard menu items
-; Menu, Tray, Add
-; Menu, SettingMenu, Add, %TEXT_MenuAutostart%, AutostartProgram
+
+
+
 
 Menu, Tray, NoStandard
 
-Menu, Tray, Add, %TEXT_MenuAutostart%, AutostartProgram
 
 Menu, Tray, Add, Exit, ExitProgram
 
 
-Run, %A_WorkingDir%\opt\AltSnap.exe -hide
+TEXT_MenuAutostart = Start with Windows
+Menu, Tray, Add, %TEXT_MenuAutostart%, AutostartProgram
 
-Run, %A_WorkingDir%\opt\CClose.exe
-Run, %A_WorkingDir%\opt\MouseWheel.exe
+
+; #1
+; 菜单
+Menu, MySubmenu, Add, Turquoise 
+Menu, MySubmenu, Add, Lake
+Menu, MySubmenu, Add, Berry
+Menu, Tray, Add, Theme, :MySubmenu
+
+
+; Wahoo
+;     Item1
+
+first_set()
+
+SetIcon()
+; #1
+run_exes()
+
+
+
+
+first_set(){
+	Menu, Tray, Click, 1
+	Menu, Tray, Add, &Switch, turn_off
+	Menu, Tray, Default, &Switch
+	return
+}
+run_exes() {
+	Run, %ConfigDir%\AltSnap1.62src\AltSnap.exe -hide
+	; "C:\Users\chy\Desktop\test\AltSnap.exe"
+	; "C:\Users\chy\Desktop\test\cclose-1.4.1.0\CClose.exe"
+	; "C:\Users\chy\Desktop\test\Revised_MouseWheelTabScroll4Chrome\Revised_MouseWheelTabScroll4Chrome.exe"
+	Run, %ConfigDir%\cclose-1.4.1.0\CClose.exe
+	Run, %ConfigDir%\Revised_MouseWheelTabScroll4Chrome\Revised_MouseWheelTabScroll4Chrome.exe
+	return
+}
+
+
 CloseExes() {
     Process, Close, AltSnap.exe
     Process, Close, CClose.exe
-    Process, Close, MouseWheel.exe
+    Process, Close, Revised_MouseWheelTabScroll4Chrome.exe
+	return
 }
+
+
+
 OnExit("CloseExes")
-
-
-
 ; retrieve the autostart setting
 IniRead, IsAutostart, %ConfigFile%, Autostart, EnableAutostart, 1
 
@@ -111,10 +131,6 @@ if !InStr(FileExist(ConfigDir), "D")
 	FileCreateDir, %ConfigDir%
 }
 Return
-
-
-
-
 
 
 
@@ -171,8 +187,190 @@ Return
 
 	
 
+
+
+
+
+
+return
+
+
+
+; #2
+SetIcon()
+{
+path := ConfigDir . "\theme.txt"
+FileRead, path2, %path%
+;       xxx.ico
+
+path3 := ConfigDir . "\" . path2
+; xxx\config\xxx.ico
+
+Menu, Tray, Icon, %path3% 
+
+
+
+
+return
+}
+
+turn_off() {
+	Menu, Tray, Delete, &Switch
+
+	Menu, Tray, Click, 1
+	Menu, Tray, Add, &Switch, turn_on
+	Menu, Tray, Default, &Switch
+
+
+	set_blank_icon()
+	CloseExes()
+	return
+}
+
+turn_on() {
+	Menu, Tray, Delete, &Switch
+
+	Menu, Tray, Click, 1
+	Menu, Tray, Add, &Switch, turn_off
+	Menu, Tray, Default, &Switch
+
+
+	SetIcon()
+	run_exes()
+	return
+}
+
+
+set_blank_icon(){
+
+path3 := ConfigDir . "\" . "Blank.ico"
+
+Menu, Tray, Icon, %path3%
+
+
+return
+}
+
+
+
+
+Turquoise:
+
+; 改altdrag文件，
+; color_file.txt
+; 152, 218, 226
+; 237, 113, 97
+; 18, 150, 219
+; Turquoise 
+; Sky
+; Berry
+
+path = %ConfigDir%\color_file.txt 
+FileDelete, %path%
+
+newContent := "152, 218, 226"
+FileAppend, %newContent%, %path%
+Process, Close, AltSnap.exe
+Run, %ConfigDir%\AltSnap1.62src\AltSnap.exe -hide
+; 改theme.txt文件
+
+path := ConfigDir . "\theme.txt"
+FileDelete, %path%
+
+newContent := "Turquoise.ico"
+FileAppend, %newContent%, %path%
+
+
+; 设置图标
+turn_on()
+SetIcon()
+
+return
+
+
+Lake:
+
+; 改altdrag文件，
+; color_file.txt
+; 152, 218, 226
+; 18, 150, 219
+; 237, 113, 97
+; Turquoise 
+; Sky
+; Berry
+
+path = %ConfigDir%\color_file.txt 
+FileDelete, %path%
+
+newContent := "18, 150, 219"
+newContent := "127, 180, 249"
+FileAppend, %newContent%, %path%
+Process, Close, AltSnap.exe
+Run, %ConfigDir%\AltSnap1.62src\AltSnap.exe -hide
+; 改theme.txt文件
+
+path := ConfigDir . "\theme.txt"
+FileDelete, %path%
+newContent := "Lake.ico"
+FileAppend, %newContent%, %path%
+
+
+; 设置图标
+turn_on()
+SetIcon()
+
+return
+
+
+return
+
+
+Berry:
+
+; 改altdrag文件，
+; color_file.txt
+; 152, 218, 226
+; 237, 113, 97
+; 18, 150, 219
+; Turquoise 
+; Sky
+; Berry
+
+path = %ConfigDir%\color_file.txt 
+FileDelete, %path%
+
+newContent := "237, 113, 97"
+FileAppend, %newContent%, %path%
+Process, Close, AltSnap.exe
+Run, %ConfigDir%\AltSnap1.62src\AltSnap.exe -hide
+; 改theme.txt文件
+
+path := ConfigDir . "\theme.txt"
+FileDelete, %path%
+newContent := "Berry.ico"
+FileAppend, %newContent%, %path%
+
+
+; 设置图标
+turn_on()
+SetIcon()
+
+return
+
+
+
+
+
 ExitProgram:
 ExitApp
+
+; #2
+
+
+
+
+
+
 
 
 
