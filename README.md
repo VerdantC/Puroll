@@ -6,16 +6,19 @@
 
 Puroll  enables smoother and more efficient operations on Windows.
 
-![Animation1](https://github.com/VerdantC/Puroll/assets/134343920/c75fd03e-b49c-45bb-979c-8fd2d1ea289b)
 - Zoom and Drag window
+![Animation1](https://github.com/VerdantC/Puroll/assets/134343920/c75fd03e-b49c-45bb-979c-8fd2d1ea289b)
 
 
-![Animation2](https://github.com/VerdantC/Puroll/assets/134343920/a2863bc0-c479-45ab-878d-d466953b2107)
+
 - Toggle always on top
+![Animation2](https://github.com/VerdantC/Puroll/assets/134343920/a2863bc0-c479-45ab-878d-d466953b2107)
 
 
-![Animation3](https://github.com/VerdantC/Puroll/assets/134343920/125dd06d-45d2-4c5f-850c-ffb01f1ea687)
+
 - Close active window
+![Animation3](https://github.com/VerdantC/Puroll/assets/134343920/125dd06d-45d2-4c5f-850c-ffb01f1ea687)
+
 
 
 
