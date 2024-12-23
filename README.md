@@ -46,7 +46,7 @@ Fork from [AltSnap](https://github.com/RamonUnch/AltSnap), [CClose](https://gith
 
 ## ✨Download
 
-- You can download the installer `Puroll-0.60bin.rar`  [here](https://github.com/caijinpao/Puroll/releases/latest)  or  [123云盘](https://www.123pan.com/s/oa4iVv-386Vv.html)
+- You can download the installer `Puroll-bin.rar`  [here](https://github.com/caijinpao/Puroll/releases/latest)  or  [123云盘](https://www.123pan.com/s/oa4iVv-386Vv.html)
 
 
 
