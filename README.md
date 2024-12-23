@@ -35,7 +35,7 @@ Fork from [AltSnap](https://github.com/RamonUnch/AltSnap), [CClose](https://gith
 | Alt + Left click     | = Drag window          |
 | Alt + Right click    | = Toggle always on top |
 | Alt + Scroll wheel   | = Zoom window          |
-| Scroll wheel on tabs | = Switch tabs          |
+| Scroll wheel on tabs | = Switch Chrome tabs   |
 | Esc x 2              | = Close active window  |
 
 
